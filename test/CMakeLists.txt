@@ -1,7 +1,7 @@
-add_executable (TestRunner "testrunner.c")
-target_link_libraries (TestRunner PRIVATE MinCTest)
+add_executable (MinCTestTestRunner "testrunner.c")
+target_link_libraries (MinCTestTestRunner PRIVATE MinCTest)
 
-target_include_directories (TestRunner
+target_include_directories (MinCTestTestRunner
   PRIVATE
     "./"
 )
