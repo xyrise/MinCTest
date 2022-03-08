@@ -29,7 +29,7 @@ else()
   add_compile_options(-Wall -Wextra -pedantic -Werror)
 endif()
 
-add_library (MinCTest "")
+add_library (MinCTest STATIC "")
 
 target_include_directories (MinCTest
   PRIVATE
