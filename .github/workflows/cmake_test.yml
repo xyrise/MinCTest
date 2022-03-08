@@ -11,7 +11,7 @@ env:
 
 jobs:
   build:
-    if: github.event.base_ref == 'refs/heads/main'
+    if: ${{ github.ref == 'refs/heads/main' }}
     strategy:
       fail-fast: false
       matrix:
@@ -22,14 +22,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=${{github.workspace}}/build/bin
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=${{github.workspace}}/build/lib
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-    #- name: Test
-      #working-directory: ${{github.workspace}}/build
-      # Execute tests defined by the CMake configuration.
-      # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      #run: ctest -C ${{env.BUILD_TYPE}}
-
+    - name: Test
+      run: cd build && ctest -C ${{env.BUILD_TYPE}}

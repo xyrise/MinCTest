@@ -1,3 +1,3 @@
-int empties() {
+int empties(void) {
   return 0;
 }

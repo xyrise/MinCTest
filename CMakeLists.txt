@@ -21,6 +21,7 @@ if (MSVC)
     /wd5045
     /wd4820
     /wd4706
+    /wd4255
     /Qspectre
   )
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
