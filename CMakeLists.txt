@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.13)
 
 project (MinCTest
-  VERSION 0.0.1
+  VERSION 0.0.2
   DESCRIPTION "A minimal test runner designed for use with CTest in a CMake project."
   HOMEPAGE_URL "https://github.com/xyrise/MinCTest"
   LANGUAGES C
