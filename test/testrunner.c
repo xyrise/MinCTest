@@ -7,16 +7,11 @@
 
 
 int main(int argc, char *argv[]) {
-  TestGroup basic = {0};
+  TestRunner tr = newTestRunner();
 
-  registerTest(basic, empties);
-  registerTest(basic, empties2);
+  registerTestGroup(tr, "basic");
+  registerTest(tr, "basic", empties);
+  registerTest(tr, "basic", empties2);
 
-  if (argc < 2) {
-    return runTests(&basic);
-  }
-  else if (argc == 2) {
-    return runTest(&basic, argv[1]);
-  }
-  return 1;
+  return runTests(tr, argc, argv);
 }

@@ -25,7 +25,6 @@ jobs:
     - name: Build
       run: |
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-        cmake --install ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         cmake -E copy_directory ${{github.workspace}}/include ${{github.workspace}}/build/dist/include
 
     - name: Compress

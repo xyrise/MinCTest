@@ -22,6 +22,7 @@ if (MSVC)
     /wd4820
     /wd4706
     /wd4255
+    /wd4090
     /Qspectre
   )
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
@@ -29,21 +30,11 @@ else()
   add_compile_options(-Wall -Wextra -pedantic -Werror)
 endif()
 
-add_library (MinCTest STATIC "")
+add_library (MinCTest INTERFACE)
 
 target_include_directories (MinCTest
-  PRIVATE
-    "./include/MinCTest"
   INTERFACE
     "./include"
 )
 
-add_subdirectory ("./src")
 add_subdirectory ("./test")
-
-install (
-  TARGETS
-    MinCTest
-  DESTINATION
-    lib
-)
