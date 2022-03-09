@@ -9,6 +9,7 @@
 !.gitignore
 !.github/**/*.yml
 !*CMakeLists.txt
+!cmake/*.cmake
 !assets/*
 
 !*.c

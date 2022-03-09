@@ -6,33 +6,16 @@ project (MinCTest
   HOMEPAGE_URL "https://github.com/xyrise/MinCTest"
   LANGUAGES C
 )
-
-include(CTest)
-
+set (PROJECT_NAME "MinCTest")
 set (CMAKE_C_STANDARD 90)
 set (CMAKE_C_STANDARD_REQUIRED 90)
 
-if (MSVC)
-  add_compile_options(
-    /Wall
-    /WX
-    /wd4710
-    /wd4711
-    /wd5045
-    /wd4820
-    /wd4706
-    /wd4255
-    /wd4090
-    /Qspectre
-  )
-  add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-else()
-  add_compile_options(-Wall -Wextra -pedantic -Werror)
-endif()
+add_library (${PROJECT_NAME} INTERFACE)
 
-add_library (MinCTest INTERFACE)
+include (CTest)
+include (cmake/CompileOptions.cmake)
 
-target_include_directories (MinCTest
+target_include_directories (${PROJECT_NAME}
   INTERFACE
     "./include"
 )
